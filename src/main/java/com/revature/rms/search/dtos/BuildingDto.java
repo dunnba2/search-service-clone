@@ -2,27 +2,24 @@ package com.revature.rms.search.dtos;
 
 import com.revature.rms.search.entites.campus.Address;
 import com.revature.rms.search.entites.campus.Amenity;
-import com.revature.rms.search.entites.campus.ResourceMetadata;
-import com.revature.rms.search.entites.campus.Room;
-import com.revature.rms.search.entites.employee.Employee;
 
 import java.util.List;
 import java.util.Objects;
 
-public class BuildingDTO {
+public class BuildingDto {
 
   private int id;
   private String name;
   private String abbrName;
   private Address address;
-  private Employee trainingLead;
+  private EmployeeDto trainingLead;
   private List<Amenity> amenities;
   private List<RoomDto> rooms;
   private ResourceMetadataDto resourceMetadata;
 
-  public BuildingDTO() {}
+  public BuildingDto() {}
 
-  public BuildingDTO(
+  public BuildingDto(
       int id,
       String name,
       String abbrName,
@@ -35,12 +32,12 @@ public class BuildingDTO {
     this.amenities = amenities;
   }
 
-  public BuildingDTO(
+  public BuildingDto(
       int id,
       String name,
       String abbrName,
       Address address,
-      Employee trainingLead,
+      EmployeeDto trainingLead,
       List<Amenity> amenities,
       List<RoomDto> rooms,
       ResourceMetadataDto resourceMetadata) {
@@ -86,11 +83,11 @@ public class BuildingDTO {
     this.address = address;
   }
 
-  public Employee getTrainingLead() {
+  public EmployeeDto getTrainingLead() {
     return trainingLead;
   }
 
-  public void setTrainingLead(Employee trainingLead) {
+  public void setTrainingLead(EmployeeDto trainingLead) {
     this.trainingLead = trainingLead;
   }
 
@@ -122,7 +119,7 @@ public class BuildingDTO {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    BuildingDTO that = (BuildingDTO) o;
+    BuildingDto that = (BuildingDto) o;
     return id == that.id
         && Objects.equals(name, that.name)
         && Objects.equals(abbrName, that.abbrName)

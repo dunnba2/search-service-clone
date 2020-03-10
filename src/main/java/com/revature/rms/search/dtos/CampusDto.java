@@ -1,9 +1,6 @@
 package com.revature.rms.search.dtos;
 
 import com.revature.rms.search.entites.campus.Address;
-import com.revature.rms.search.entites.campus.Building;
-import com.revature.rms.search.entites.employee.Employee;
-import com.revature.rms.search.entites.campus.ResourceMetadata;
 
 import java.util.List;
 import java.util.Objects;
@@ -13,10 +10,10 @@ public class CampusDto {
   private String name;
   private String abbrName;
   private Address shippingAddress;
-  private Employee trainingManager;
-  private Employee stagingManager;
-  private Employee hrLead;
-  private List<BuildingDTO> buildings;
+  private EmployeeDto trainingManager;
+  private EmployeeDto stagingManager;
+  private EmployeeDto hrLead;
+  private List<BuildingDto> buildings;
   private List<EmployeeDto> corporateEmployees;
   private ResourceMetadataDto resourceMetadata;
 
@@ -40,10 +37,10 @@ public class CampusDto {
       String name,
       String abbrName,
       Address shippingAddress,
-      Employee trainingManager,
-      Employee stagingManager,
-      Employee hrLead,
-      List<BuildingDTO> buildings,
+      EmployeeDto trainingManager,
+      EmployeeDto stagingManager,
+      EmployeeDto hrLead,
+      List<BuildingDto> buildings,
       List<EmployeeDto> corporateEmployees,
       ResourceMetadataDto resourceMetadata) {
     this.id = id;
@@ -90,35 +87,35 @@ public class CampusDto {
     this.shippingAddress = shippingAddress;
   }
 
-  public Employee getTrainingManager() {
+  public EmployeeDto getTrainingManager() {
     return trainingManager;
   }
 
-  public void setTrainingManager(Employee trainingManager) {
+  public void setTrainingManager(EmployeeDto trainingManager) {
     this.trainingManager = trainingManager;
   }
 
-  public Employee getStagingManager() {
+  public EmployeeDto getStagingManager() {
     return stagingManager;
   }
 
-  public void setStagingManager(Employee stagingManager) {
+  public void setStagingManager(EmployeeDto stagingManager) {
     this.stagingManager = stagingManager;
   }
 
-  public Employee getHrLead() {
+  public EmployeeDto getHrLead() {
     return hrLead;
   }
 
-  public void setHrLead(Employee hrLead) {
+  public void setHrLead(EmployeeDto hrLead) {
     this.hrLead = hrLead;
   }
 
-  public List<BuildingDTO> getBuildings() {
+  public List<BuildingDto> getBuildings() {
     return buildings;
   }
 
-  public void setBuildings(List<BuildingDTO> buildings) {
+  public void setBuildings(List<BuildingDto> buildings) {
     this.buildings = buildings;
   }
 

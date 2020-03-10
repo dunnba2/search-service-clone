@@ -8,21 +8,13 @@ import java.util.Objects;
 public class Batch {
 
   private int id;
-
   private String name;
-
   private LocalDate startDate;
-
   private LocalDate endDate;
-
   private int trainerId;
-
   private int coTrainerId;
-
   private List<Integer> associates;
-
   private Curriculum curriculum;
-
   private ResourceMetadata resourceMetadata;
 
   public Batch() {}

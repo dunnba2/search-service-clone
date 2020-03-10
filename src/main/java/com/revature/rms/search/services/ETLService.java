@@ -9,20 +9,19 @@ import com.revature.rms.search.entites.campus.ResourceMetadata;
 import com.revature.rms.search.entites.campus.Room;
 import com.revature.rms.search.entites.employee.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.info.ProjectInfoProperties;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class MassiveService {
+public class ETLService {
 
     private EmployeeClient empClient;
     private CampusClient campClient;
 
     @Autowired
-    public MassiveService(EmployeeClient employeeClient, CampusClient campusClient) {
+    public ETLService(EmployeeClient employeeClient, CampusClient campusClient) {
         super();
         this.empClient = employeeClient;
         this.campClient = campusClient;
@@ -37,7 +36,7 @@ public class MassiveService {
         return campusDto;
     }
 
-    public BuildingDTO getBuildingDtoById(String id) {
+    public BuildingDto getBuildingDtoById(String id) {
         Building building = campClient.getBuildingById(id);
         return getBuildingData(building);
     }
@@ -60,19 +59,19 @@ public class MassiveService {
         return employeeDto;
     }
 
-    public BuildingDTO getBuildingData(Building building) {
-        BuildingDTO dto = building.extractBuilding();
+    public BuildingDto getBuildingData(Building building) {
+        BuildingDto dto = building.extractBuilding();
         dto.setTrainingLead(getEmployeeById(building.getTrainingLead()));
         dto.setRooms(getEachRoomMeta(building.getRooms()));
         dto.setResourceMetadata(campusMetaData(building.getResourceMetadata()));
         return dto;
     }
 
-    public List<BuildingDTO> getListOfBuildingsData(List<Building> buildings) {
-        List<BuildingDTO> buildingDtos = new ArrayList<>();
+    public List<BuildingDto> getListOfBuildingsData(List<Building> buildings) {
+        List<BuildingDto> buildingDtos = new ArrayList<>();
         for(int i = 0; i < buildings.size(); i++) {
             Building building = buildings.get(i);
-            BuildingDTO b = building.extractBuilding();
+            BuildingDto b = building.extractBuilding();
             b.setTrainingLead(getEmployeeById(building.getTrainingLead()));
             b.setRooms(getEachRoomMeta(building.getRooms()));
             b.setResourceMetadata(campusMetaData(building.getResourceMetadata()));
@@ -91,8 +90,8 @@ public class MassiveService {
     }
 
 
-    public Employee getEmployeeById(int id) {
-        Employee emp = empClient.getEmployeeById(id);
+    public EmployeeDto getEmployeeById(int id) {
+        EmployeeDto emp = empClient.getEmployeeById(id).extractEmployee();
         return emp;
     }
 

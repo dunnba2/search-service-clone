@@ -1,36 +1,42 @@
 package com.revature.rms.search.dtos;
 
 import com.revature.rms.search.entites.batch.Curriculum;
-import com.revature.rms.search.entites.batch.ResourceMetadata;
-import com.revature.rms.search.entites.employee.Employee;
 
 import java.util.List;
 import java.util.Objects;
 
-public class BatchDTO {
+public class BatchDto {
 
   private int id;
   private String name;
-  private Employee trainer;
-  private Employee coTrainer;
-  private List<Employee> associates;
+  private EmployeeDto trainer;
+  private EmployeeDto coTrainer;
+  private List<EmployeeDto> associates;
   private String startDate;
   private String endDate;
   private Curriculum curriculum;
-  private ResourceMetadata resourceMetadata;
+  private ResourceMetadataDto resourceMetadata;
 
-  public BatchDTO() {}
+  public BatchDto() {}
 
-  public BatchDTO(
+  public BatchDto(int id, String name, String startDate, String endDate, Curriculum curriculum) {
+    this.id = id;
+    this.name = name;
+    this.startDate = startDate;
+    this.endDate = endDate;
+    this.curriculum = curriculum;
+  }
+
+  public BatchDto(
       int id,
       String name,
-      Employee trainer,
-      Employee coTrainer,
-      List<Employee> associates,
+      EmployeeDto trainer,
+      EmployeeDto coTrainer,
+      List<EmployeeDto> associates,
       String startDate,
       String endDate,
       Curriculum curriculum,
-      ResourceMetadata resourceMetadata) {
+      ResourceMetadataDto resourceMetadata) {
     this.id = id;
     this.name = name;
     this.trainer = trainer;
@@ -58,27 +64,27 @@ public class BatchDTO {
     this.name = name;
   }
 
-  public Employee getTrainer() {
+  public EmployeeDto getTrainer() {
     return trainer;
   }
 
-  public void setTrainer(Employee trainer) {
+  public void setTrainer(EmployeeDto trainer) {
     this.trainer = trainer;
   }
 
-  public Employee getCoTrainer() {
+  public EmployeeDto getCoTrainer() {
     return coTrainer;
   }
 
-  public void setCoTrainer(Employee coTrainer) {
+  public void setCoTrainer(EmployeeDto coTrainer) {
     this.coTrainer = coTrainer;
   }
 
-  public List<Employee> getAssociates() {
+  public List<EmployeeDto> getAssociates() {
     return associates;
   }
 
-  public void setAssociates(List<Employee> associates) {
+  public void setAssociates(List<EmployeeDto> associates) {
     this.associates = associates;
   }
 
@@ -106,11 +112,11 @@ public class BatchDTO {
     this.curriculum = curriculum;
   }
 
-  public ResourceMetadata getResourceMetadata() {
+  public ResourceMetadataDto getResourceMetadata() {
     return resourceMetadata;
   }
 
-  public void setResourceMetadata(ResourceMetadata resourceMetadata) {
+  public void setResourceMetadata(ResourceMetadataDto resourceMetadata) {
     this.resourceMetadata = resourceMetadata;
   }
 
@@ -118,7 +124,7 @@ public class BatchDTO {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    BatchDTO batchDTO = (BatchDTO) o;
+    BatchDto batchDTO = (BatchDto) o;
     return id == batchDTO.id
         && Objects.equals(name, batchDTO.name)
         && Objects.equals(trainer, batchDTO.trainer)

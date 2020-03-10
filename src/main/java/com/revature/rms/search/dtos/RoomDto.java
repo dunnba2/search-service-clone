@@ -1,7 +1,5 @@
 package com.revature.rms.search.dtos;
 
-import com.revature.rms.search.entites.batch.Batch;
-import com.revature.rms.search.entites.campus.ResourceMetadata;
 import com.revature.rms.search.entites.campus.RoomStatus;
 import com.revature.rms.search.entites.workorder.WorkOrder;
 
@@ -15,7 +13,7 @@ public class RoomDto {
   private int maxOccupancy;
   private boolean isActive;
   private RoomStatus currentStatus;
-  private Batch batch;
+  private BatchDto batch;
   private List<WorkOrder> workOrders;
   private ResourceMetadataDto resourceMetadata;
 
@@ -38,7 +36,7 @@ public class RoomDto {
       int maxOccupancy,
       boolean isActive,
       RoomStatus currentStatus,
-      Batch batch,
+      BatchDto batch,
       List<WorkOrder> workOrders,
       ResourceMetadataDto resourceMetadata) {
     this.id = id;
@@ -91,11 +89,11 @@ public class RoomDto {
     this.currentStatus = currentStatus;
   }
 
-  public Batch getBatch() {
+  public BatchDto getBatch() {
     return batch;
   }
 
-  public void setBatch(Batch batch) {
+  public void setBatch(BatchDto batch) {
     this.batch = batch;
   }
 
